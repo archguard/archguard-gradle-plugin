@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @Suppress("UnnecessaryAbstractClass")
 abstract class ArchguardExtension @Inject constructor(
-    project: Project,
+    val project: Project,
     val slotContainer: NamedDomainObjectContainer<SlotConfiguration>
 ) {
     /**
@@ -47,4 +47,3 @@ abstract class ArchguardExtension @Inject constructor(
         action.execute(slotContainer)
     }
 }
-

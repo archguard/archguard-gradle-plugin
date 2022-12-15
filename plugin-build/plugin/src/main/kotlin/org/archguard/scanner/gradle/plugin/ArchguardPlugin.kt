@@ -23,7 +23,7 @@ abstract class ArchguardPlugin : Plugin<Project> {
 //        val command = toCommand(extension)
 
         project.tasks.register(TASK_NAME, ArchguardScanTask::class.java) {
-//            it.command = command
+            it.command = toCommand(extension)
             it.group = "verification"
             it.description = "Scan the project with Archguard"
         }
