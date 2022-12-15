@@ -1,3 +1,8 @@
+repositories {
+    gradlePluginPortal()
+    mavenCentral()
+}
+
 plugins {
     kotlin("jvm")
     `java-gradle-plugin`
@@ -5,6 +10,9 @@ plugins {
 }
 
 dependencies {
+    implementation("org.archguard.scanner:scanner_core:2.0.0-beta.4")
+    implementation("org.archguard.scanner:scanner_cli:2.0.0-beta.4")
+
     implementation(kotlin("stdlib"))
     implementation(gradleApi())
 
@@ -32,7 +40,7 @@ pluginBundle {
     website = property("WEBSITE").toString()
     vcsUrl = property("VCS_URL").toString()
     description = property("DESCRIPTION").toString()
-    tags = listOf("plugin", "gradle", "sample", "template")
+    tags = listOf("architecture", "archguard", "guard", "lint")
 }
 
 tasks.create("setupPluginUploadFromEnvironment") {
