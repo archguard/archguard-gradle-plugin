@@ -19,9 +19,6 @@ abstract class ArchguardPlugin : Plugin<Project> {
             slotContainer
         )
 
-        println("extension: ${extension.serverUrl}")
-//        val command = toCommand(extension)
-
         project.tasks.register(TASK_NAME, ArchguardScanTask::class.java) {
             it.command = toCommand(extension)
             it.group = "verification"
@@ -35,9 +32,9 @@ private fun toCommand(extension: ArchguardExtension): ScannerCommand {
         serverUrl = extension.serverUrl,
         language = extension.language,
         features = extension.features,
-        path = ".",
+        path = extension.path[0],
         output = extension.output,
-        type = org.archguard.scanner.core.context.AnalyserType.SOURCE_CODE,
+        type = org.archguard.scanner.core.context.AnalyserType.SCA,
         systemId = extension.systemId,
         slots = extension.slotContainer.map { slot ->
             AnalyserSpec(

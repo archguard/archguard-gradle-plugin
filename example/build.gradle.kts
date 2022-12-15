@@ -4,9 +4,9 @@ plugins {
 }
 
 archguard {
-    serverUrl = "http://localhost:8088"
+//    serverUrl = "http://localhost:8088"
     language = "kotlin"
-    path += "src/main"
-    output += "http"
+    path += "."
+    output += "json"
     systemId = "0"
 }

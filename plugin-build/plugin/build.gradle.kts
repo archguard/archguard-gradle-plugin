@@ -10,6 +10,7 @@ plugins {
 }
 
 dependencies {
+    implementation("com.phodal.chapi:chapi-domain:2.0.0-beta.9")
     implementation("org.archguard.scanner:scanner_core:2.0.0-beta.4")
     implementation("org.archguard.scanner:scanner_cli:2.0.0-beta.4")
 
