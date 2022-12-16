@@ -15,6 +15,7 @@ dependencies {
     implementation("org.archguard.scanner:scanner_cli:2.0.0-beta.4")
 
     implementation(kotlin("stdlib"))
+    implementation(kotlin("reflect"))
     implementation(gradleApi())
 
     testImplementation(libs.junit)
