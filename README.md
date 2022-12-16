@@ -1,6 +1,8 @@
-# ArchGuard Gradle plugin
+# ArchGuard Gradle Scanner plugin
 
+purpose: running Archguard scan inside tooling
 
+plugin under plugin-build/plugin
 
 
 ## Composite Build 📦
