@@ -25,7 +25,7 @@ gradleEnterprise {
     }
 }
 
-rootProject.name = "kotlin-gradle-plugin-template"
+rootProject.name = "Archguard Gradle Plugin"
 
 include(":example")
 includeBuild("plugin-build")
