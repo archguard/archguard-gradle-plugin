@@ -33,7 +33,8 @@ abstract class ArchguardScanTask : DefaultTask() {
 
         val analyser = AnalyserLoader.load(context, spec) as ScaAnalyser
         logger.lifecycle("Analyser: ${analyser.context}")
-        analyser.analyse()
+
+//        analyser.analyse()
 
 //        AnalyserDispatcher().dispatch(command)
 
