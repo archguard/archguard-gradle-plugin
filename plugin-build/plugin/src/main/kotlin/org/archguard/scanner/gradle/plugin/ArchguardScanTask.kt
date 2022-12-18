@@ -1,10 +1,8 @@
 package org.archguard.scanner.gradle.plugin
 
-import org.archguard.scanner.core.sca.ScaAnalyser
 import org.archguard.scanner.ctl.command.ScannerCommand
-import org.archguard.scanner.ctl.impl.CliScaContext
-import org.archguard.scanner.ctl.impl.OfficialAnalyserSpecs
 import org.archguard.scanner.ctl.loader.AnalyserLoader
+import org.archguard.scanner.ctl.loader.AnalyserDispatcher
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
@@ -22,21 +20,19 @@ abstract class ArchguardScanTask : DefaultTask() {
         logger.lifecycle("Archguard scan task start")
 
         logger.lifecycle("Install Archguard path: ${AnalyserLoader.installPath}")
+//
+//        val context = CliScaContext(
+//            client = command.buildClient(),
+//            path = command.path,
+//            language = command.language!!,
+//        )
+//
+//        val spec = command.getAnalyserSpec(OfficialAnalyserSpecs.SCA.spec().identifier)
+//
+//        val analyser = AnalyserLoader.load(context, spec) as ScaAnalyser
+//        logger.lifecycle("Analyser: ${analyser.context}")
 
-        val context = CliScaContext(
-            client = command.buildClient(),
-            path = command.path,
-            language = command.language!!,
-        )
-
-        val spec = command.getAnalyserSpec(OfficialAnalyserSpecs.SCA.spec().identifier)
-
-        val analyser = AnalyserLoader.load(context, spec) as ScaAnalyser
-        logger.lifecycle("Analyser: ${analyser.context}")
-
-//        analyser.analyse()
-
-//        AnalyserDispatcher().dispatch(command)
+        AnalyserDispatcher().dispatch(command)
 
         logger.lifecycle("Archguard scan task end")
     }
