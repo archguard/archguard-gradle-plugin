@@ -41,6 +41,11 @@ abstract class ArchguardExtension @Inject constructor(
     abstract var systemId: String
 
     /**
+     * supported : source_code, git, diff_changes, sca, architecture, estimate
+     */
+    abstract var type: String
+
+    /**
      * The Archguard Slots configuration for the project
      */
     fun slots(action: Action<NamedDomainObjectContainer<SlotConfiguration>>) {

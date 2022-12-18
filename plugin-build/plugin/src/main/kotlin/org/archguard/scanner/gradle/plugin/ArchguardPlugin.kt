@@ -34,7 +34,7 @@ private fun toCommand(extension: ArchguardExtension): ScannerCommand {
         features = extension.features,
         path = extension.path[0],
         output = extension.output,
-        type = org.archguard.scanner.core.context.AnalyserType.SOURCE_CODE,
+        type = org.archguard.scanner.core.context.AnalyserType.fromString(extension.type),
         systemId = extension.systemId,
         slots = extension.slotContainer.map { slot ->
             AnalyserSpec(
