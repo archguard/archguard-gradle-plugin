@@ -1,8 +1,8 @@
 package org.archguard.scanner.gradle.plugin
 
 import org.archguard.scanner.ctl.command.ScannerCommand
-import org.archguard.scanner.ctl.loader.AnalyserLoader
 import org.archguard.scanner.ctl.loader.AnalyserDispatcher
+import org.archguard.scanner.ctl.loader.AnalyserLoader
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
