@@ -3,7 +3,6 @@ package org.archguard.scanner.gradle.plugin
 import org.gradle.api.Named
 import org.gradle.api.NamedDomainObjectFactory
 import org.gradle.api.Project
-import java.io.Serializable
 import javax.inject.Inject
 
 /**
@@ -12,7 +11,7 @@ import javax.inject.Inject
 abstract class SlotConfiguration @Inject constructor(
     name: String,
     private var project: Project
-) : Named, Serializable {
+) : Named {
     private val mName: String = name
 
     abstract var identifier: String
