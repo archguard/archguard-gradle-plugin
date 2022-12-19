@@ -47,6 +47,14 @@ abstract class ArchguardExtension @Inject constructor(
 
     /**
      * The Archguard Slots configuration for the project
+     * {
+     *   "identifier": "rule",
+     *   "host": "https://github.com/archguard/archguard/releases/download/v2.0.0-alpha.17",
+     *   "version": "2.0.0-alpha.17",
+     *   "jar": "rule-webapi-2.0.0-alpha.17-all.jar",
+     *   "className": "org.archguard.linter.rule.webapi.WebApiRuleSlot",
+     *   "slotType": "rule"
+     * }'
      */
     fun slots(action: Action<NamedDomainObjectContainer<SlotConfiguration>>) {
         action.execute(slotContainer)

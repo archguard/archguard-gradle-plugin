@@ -10,4 +10,15 @@ archguard {
     output = listOf("json")
     systemId = "0"
     type = "source_code"
+    features = listOf("apicalls")
+
+//    slots {
+//        create("slot") {
+//            identifier = "rule"
+//            host = "https://github.com/archguard/archguard/releases/download/v2.0.0-beta.5"
+//            version = "2.0.0-beta.5"
+//            jar = "rule-webapi-2.0.0-alpha.17-all.jar"
+//            className = "org.archguard.slot1.Slot1"
+//        }
+//    }
 }
