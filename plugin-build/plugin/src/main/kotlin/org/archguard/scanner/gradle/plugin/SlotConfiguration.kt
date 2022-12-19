@@ -9,11 +9,11 @@ import javax.inject.Inject
 /**
  * Container for the custom Archguard plugin configuration DSL.
  */
-abstract class SlotConfiguration : Named, Serializable {
-    private val serialVersionUID = 1L
-
-    private val mName: String
+abstract class SlotConfiguration @Inject constructor(
+    name: String,
     private var project: Project
+) : Named, Serializable {
+    private val mName: String = name
 
     abstract var identifier: String
     abstract var host: String
@@ -21,12 +21,6 @@ abstract class SlotConfiguration : Named, Serializable {
     abstract var jar: String
     abstract var className: String
     abstract var slotType: String
-
-    @Inject
-    constructor(name: String, project: Project) {
-        this.mName = name
-        this.project = project
-    }
 
     override fun getName(): String {
         return this.mName

@@ -13,7 +13,7 @@ abstract class ArchguardExtension @Inject constructor(
     /**
      * The server url of Archguard backend, default to [http://localhost:8088]
      */
-    var serverUrl: String = "http://localhost:8080"
+    abstract var serverUrl: String
 
     /**
      * The supported languages: [java, kotlin, javascript, typescript, python, go ...], default to [java]
@@ -36,7 +36,7 @@ abstract class ArchguardExtension @Inject constructor(
     var output: List<String> = listOf()
 
     /**
-     * the systemId
+     * the systemId, can be ignored, if backend support update by repository
      */
     abstract var systemId: String
 
@@ -46,7 +46,8 @@ abstract class ArchguardExtension @Inject constructor(
     abstract var type: String
 
     /**
-     * The Archguard Slots configuration for the project
+     * The Archguard Slots configuration for the project, for examples:
+     *
      * {
      *   "identifier": "rule",
      *   "host": "https://github.com/archguard/archguard/releases/download/v2.0.0-alpha.17",
@@ -54,7 +55,7 @@ abstract class ArchguardExtension @Inject constructor(
      *   "jar": "rule-webapi-2.0.0-alpha.17-all.jar",
      *   "className": "org.archguard.linter.rule.webapi.WebApiRuleSlot",
      *   "slotType": "rule"
-     * }'
+     * }
      */
     fun slots(action: Action<NamedDomainObjectContainer<SlotConfiguration>>) {
         action.execute(slotContainer)

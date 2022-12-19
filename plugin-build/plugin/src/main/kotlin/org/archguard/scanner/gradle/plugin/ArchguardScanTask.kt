@@ -19,18 +19,7 @@ abstract class ArchguardScanTask : DefaultTask() {
     fun executeScan() {
         logger.lifecycle("Archguard scan task start")
 
-        logger.lifecycle("Install Archguard path: ${AnalyserLoader.installPath}")
-//
-//        val context = CliScaContext(
-//            client = command.buildClient(),
-//            path = command.path,
-//            language = command.language!!,
-//        )
-//
-//        val spec = command.getAnalyserSpec(OfficialAnalyserSpecs.SCA.spec().identifier)
-//
-//        val analyser = AnalyserLoader.load(context, spec) as ScaAnalyser
-//        logger.lifecycle("Analyser: ${analyser.context}")
+        logger.lifecycle("Archguard Installed path: ${AnalyserLoader.installPath}")
 
         AnalyserDispatcher().dispatch(command)
 
