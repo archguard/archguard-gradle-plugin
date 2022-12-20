@@ -13,7 +13,7 @@ abstract class ArchguardScanTask : DefaultTask() {
     }
 
     @get:Input
-    abstract var command: ScannerCommand
+    abstract var commands: List<ScannerCommand>
 
     @TaskAction
     fun executeScan() {
@@ -21,7 +21,10 @@ abstract class ArchguardScanTask : DefaultTask() {
 
         logger.lifecycle("Archguard Installed path: ${AnalyserLoader.installPath}")
 
-        AnalyserDispatcher().dispatch(command)
+        commands.forEach { command ->
+            logger.lifecycle("exec command type: ${command.type}")
+            AnalyserDispatcher().dispatch(command)
+        }
 
         logger.lifecycle("Archguard scan task end")
     }

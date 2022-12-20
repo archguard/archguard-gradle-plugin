@@ -13,7 +13,7 @@ abstract class ArchguardExtension @Inject constructor(
     /**
      * The server url of Archguard backend, default to [http://localhost:8088]
      */
-    abstract var serverUrl: String
+    var serverUrl: String = ""
 
     /**
      * The supported languages: [java, kotlin, javascript, typescript, python, go ...], default to [java]
@@ -21,7 +21,7 @@ abstract class ArchguardExtension @Inject constructor(
     var language: String = "java"
 
     /**
-     * The supported features: ["apicalls", ""]
+     * The supported features: ["apicalls", "datamap"]
      */
     var features: List<String> = listOf()
 
@@ -43,7 +43,7 @@ abstract class ArchguardExtension @Inject constructor(
     /**
      * supported : source_code, git, diff_changes, sca, architecture, estimate
      */
-    abstract var type: String
+    abstract var type: List<String>
 
     /**
      * The Archguard Slots configuration for the project, for examples:

@@ -6,11 +6,11 @@ plugins {
 archguard {
     serverUrl = "http://localhost:8088"
     language = "java"
-    path += "../"
+    path += "."
     output = listOf("json")
     systemId = "0"
-    type = "source_code"
-    features = listOf("apicalls")
+    type = listOf("source_code", "estimate")
+    features = listOf("apicalls", "datamap")
 
     slots {
         create("slot") {
