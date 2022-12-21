@@ -22,7 +22,8 @@ abstract class ArchguardScanTask : DefaultTask() {
         logger.lifecycle("Archguard Installed path: ${AnalyserLoader.installPath}")
 
         commands.forEach { command ->
-            logger.lifecycle("exec command type: ${command.type}")
+            logger.lifecycle("exec command type: ${command.type}, path: ${command.path}")
+
             AnalyserDispatcher().dispatch(command)
         }
 

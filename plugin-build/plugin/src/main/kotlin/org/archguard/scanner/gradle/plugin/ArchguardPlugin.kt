@@ -20,20 +20,23 @@ abstract class ArchguardPlugin : Plugin<Project> {
         )
 
         project.tasks.register(TASK_NAME, ArchguardScanTask::class.java) {
-            it.commands = toCommands(extension)
+            it.commands = toCommands(extension, project)
             it.group = "verification"
             it.description = "Scan the project with Archguard"
         }
     }
 }
 
-private fun toCommands(extension: ArchguardExtension): List<ScannerCommand> {
+private fun toCommands(extension: ArchguardExtension, project: Project): List<ScannerCommand> {
     return extension.type.map { type ->
+        val firstPath = extension.path[0]
+        val path = project.projectDir.resolve(firstPath).absolutePath
+
         ScannerCommand(
             serverUrl = extension.serverUrl,
             language = extension.language,
             features = extension.features,
-            path = extension.path[0],
+            path = path,
             output = extension.output,
             type = org.archguard.scanner.core.context.AnalyserType.fromString(type),
             systemId = extension.systemId,
