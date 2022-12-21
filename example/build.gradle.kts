@@ -26,7 +26,6 @@ dependencies {
 archguard {
     serverUrl = "http://localhost:8088"
     language = "java"
-    path += "."
     output = listOf("json")
     systemId = "0"
     type = listOf("source_code", "sca", "estimate")

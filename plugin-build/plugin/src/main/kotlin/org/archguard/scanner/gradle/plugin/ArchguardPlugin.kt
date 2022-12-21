@@ -29,8 +29,7 @@ abstract class ArchguardPlugin : Plugin<Project> {
 
 private fun toCommands(extension: ArchguardExtension, project: Project): List<ScannerCommand> {
     return extension.type.map { type ->
-        val firstPath = extension.path[0]
-        val path = project.projectDir.resolve(firstPath).absolutePath
+        val path = project.projectDir.resolve(extension.path).absolutePath
 
         ScannerCommand(
             serverUrl = extension.serverUrl,

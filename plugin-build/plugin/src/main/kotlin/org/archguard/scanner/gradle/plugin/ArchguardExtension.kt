@@ -28,7 +28,7 @@ abstract class ArchguardExtension @Inject constructor(
     /**
      * the source code path
      */
-    var path: List<String> = listOf()
+    var path: String = project.rootDir.absolutePath
 
     /**
      * the output
