@@ -1,6 +1,26 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
 plugins {
     java
     id("org.archguard.scanner")
+    id("org.springframework.boot") version "2.7.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:2.7.0")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.7.0")
+    implementation("org.springframework.boot:spring-boot-starter-actuator:2.7.0")
+    implementation("org.springframework.boot:spring-boot-starter-validation:2.7.0")
+    implementation("org.springframework.boot:spring-boot-starter-websocket:2.7.0")
 }
 
 archguard {
