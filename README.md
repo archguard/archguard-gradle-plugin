@@ -1,15 +1,12 @@
 # ArchGuard Gradle Scanner plugin
 
-purpose: running Archguard scan inside tooling
+![Gradle Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/org.archguard.scanner)
 
-plugin under plugin-build/plugin
-
-## Usage
+Gradle Kotlin sample:
 
 ```groovy
 plugins {
-    java
-    id("org.archguard.scanner")
+    id("org.archguard.scanner") version "$version"
 }
 
 archguard {
