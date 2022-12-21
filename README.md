@@ -1,7 +1,7 @@
 # ArchGuard Gradle Scanner plugin
 
 [![Pre Merge Checks](https://github.com/archguard/archguard-gradle-plugin/actions/workflows/pre-merge.yaml/badge.svg)](https://github.com/archguard/archguard-gradle-plugin/actions/workflows/pre-merge.yaml)
-![Gradle Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/org.archguard.scanner)
+[![Gradle Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/org.archguard.scanner)](https://plugins.gradle.org/plugin/org.archguard.scanner)
 
 Gradle Kotlin sample:
 
