@@ -18,10 +18,10 @@ archguard {
     path += "../"
     output = listOf("json")
     systemId = "0"
-    type = "source_code"
-    features = listOf("apicalls")
+    // support for multiple scan
+    type = listOf("source_code", "sca")
+    features = listOf("apicalls", "datamap")
 
-    // for custom slots
     slots {
         create("slot") {
             identifier = "rule"
