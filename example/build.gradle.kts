@@ -29,7 +29,7 @@ archguard {
     path += "."
     output = listOf("json")
     systemId = "0"
-    type = listOf("source_code", "sca")
+    type = listOf("source_code", "sca", "estimate")
     features = listOf("apicalls", "datamap")
 
     slots {
