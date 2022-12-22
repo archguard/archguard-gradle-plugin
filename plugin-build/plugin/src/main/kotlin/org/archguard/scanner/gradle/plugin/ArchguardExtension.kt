@@ -31,7 +31,7 @@ abstract class ArchguardExtension @Inject constructor(
     var path: String = project.rootDir.absolutePath
 
     /**
-     * the output
+     * supported: [http, csv, json, console]
      */
     var output: List<String> = listOf()
 
