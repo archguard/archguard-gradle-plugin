@@ -31,6 +31,8 @@ archguard {
     type = listOf("source_code", "sca", "estimate")
     features = listOf("apicalls", "datamap")
 
+    // todo: add output directory
+
     slots {
         create("slot") {
             identifier = "rule"
