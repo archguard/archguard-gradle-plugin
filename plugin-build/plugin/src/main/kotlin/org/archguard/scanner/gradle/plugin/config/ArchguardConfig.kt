@@ -1,4 +1,4 @@
-package org.archguard.scanner.gradle.plugin
+package org.archguard.scanner.gradle.plugin.config
 
 import org.archguard.scanner.gradle.plugin.config.SlotConfiguration
 import org.archguard.scanner.gradle.plugin.config.SpecConfiguration
@@ -8,7 +8,7 @@ import org.gradle.api.Project
 import javax.inject.Inject
 
 @Suppress("UnnecessaryAbstractClass")
-abstract class ArchguardExtension @Inject constructor(
+abstract class ArchguardConfig @Inject constructor(
     val project: Project,
     val slotContainer: NamedDomainObjectContainer<SlotConfiguration>,
     val specContainer: NamedDomainObjectContainer<SpecConfiguration>

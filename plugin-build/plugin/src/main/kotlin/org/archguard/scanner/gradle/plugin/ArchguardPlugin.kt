@@ -2,10 +2,10 @@ package org.archguard.scanner.gradle.plugin
 
 import org.archguard.scanner.core.AnalyserSpec
 import org.archguard.scanner.ctl.command.ScannerCommand
-import org.archguard.scanner.gradle.plugin.config.SlotConfiguration
+import org.archguard.scanner.gradle.plugin.config.*
 import org.archguard.scanner.gradle.plugin.config.SlotConfigurationFactory
-import org.archguard.scanner.gradle.plugin.config.SpecConfiguration
 import org.archguard.scanner.gradle.plugin.config.SpecConfigurationFactory
+import org.archguard.scanner.gradle.plugin.task.ScanArchguardTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -19,13 +19,13 @@ abstract class ArchguardPlugin : Plugin<Project> {
 
         val extension = project.extensions.create(
             EXTENSION_NAME,
-            ArchguardExtension::class.java,
+            ArchguardConfig::class.java,
             project,
             slotContainer,
             specContainer
         )
 
-        project.tasks.register(TASK_NAME, ArchguardScanTask::class.java) {
+        project.tasks.register(TASK_NAME, ScanArchguardTask::class.java) {
             it.commands = toCommands(extension, project)
             it.group = "verification"
             it.description = "Scan the project with Archguard"
@@ -33,7 +33,7 @@ abstract class ArchguardPlugin : Plugin<Project> {
     }
 }
 
-private fun toCommands(extension: ArchguardExtension, project: Project): List<ScannerCommand> {
+private fun toCommands(extension: ArchguardConfig, project: Project): List<ScannerCommand> {
     return extension.type.map { type ->
         val path = project.projectDir.resolve(extension.path).absolutePath
 
