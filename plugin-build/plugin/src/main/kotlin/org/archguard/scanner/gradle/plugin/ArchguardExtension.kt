@@ -8,7 +8,8 @@ import javax.inject.Inject
 @Suppress("UnnecessaryAbstractClass")
 abstract class ArchguardExtension @Inject constructor(
     val project: Project,
-    val slotContainer: NamedDomainObjectContainer<SlotConfiguration>
+    val slotContainer: NamedDomainObjectContainer<SlotConfiguration>,
+    val specContainer: NamedDomainObjectContainer<SpecConfiguration>
 ) {
     /**
      * The server url of Archguard backend, default to [http://localhost:8088]
@@ -59,5 +60,9 @@ abstract class ArchguardExtension @Inject constructor(
      */
     fun slots(action: Action<NamedDomainObjectContainer<SlotConfiguration>>) {
         action.execute(slotContainer)
+    }
+
+    fun specs(action: Action<NamedDomainObjectContainer<SpecConfiguration>>) {
+        action.execute(specContainer)
     }
 }

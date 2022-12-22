@@ -11,12 +11,14 @@ const val TASK_NAME = "scanArchguard"
 abstract class ArchguardPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val slotContainer = project.container(SlotConfiguration::class.java, SlotConfigurationFactory(project))
+        val specContainer = project.container(SpecConfiguration::class.java, SpecConfigurationFactory(project))
 
         val extension = project.extensions.create(
             EXTENSION_NAME,
             ArchguardExtension::class.java,
             project,
-            slotContainer
+            slotContainer,
+            specContainer
         )
 
         project.tasks.register(TASK_NAME, ArchguardScanTask::class.java) {
