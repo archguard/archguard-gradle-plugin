@@ -5,7 +5,7 @@ import org.gradle.api.NamedDomainObjectFactory
 import org.gradle.api.Project
 import javax.inject.Inject
 
-// todo: -> refactor -> merge SlotConfiguration and SpecConfiguration
+// refactor -> merge SlotConfiguration and SpecConfiguration
 abstract class SpecConfiguration @Inject constructor(
     name: String,
     private var project: Project
