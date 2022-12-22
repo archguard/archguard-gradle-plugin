@@ -28,7 +28,7 @@ jobs:
 
         # We do a run of the new task `templateExample` created by the plugin
       - name: Run the plugin
-        run: ./gradlew scanArchguard
+        run: ./gradlew archguardScan
         if: success()
         # And we verify that the output of the file is correct.
 #      - name: Verify the plugin output

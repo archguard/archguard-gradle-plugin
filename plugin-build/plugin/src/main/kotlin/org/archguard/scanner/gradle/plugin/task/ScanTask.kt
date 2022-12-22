@@ -7,7 +7,7 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
-abstract class ScanArchguardTask : DefaultTask() {
+abstract class ScanTask : DefaultTask() {
     init {
         description = "The scanner for Archguard"
     }

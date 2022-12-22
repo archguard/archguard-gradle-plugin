@@ -3,14 +3,12 @@ package org.archguard.scanner.gradle.plugin
 import org.archguard.scanner.core.AnalyserSpec
 import org.archguard.scanner.ctl.command.ScannerCommand
 import org.archguard.scanner.gradle.plugin.config.*
-import org.archguard.scanner.gradle.plugin.config.SlotConfigurationFactory
-import org.archguard.scanner.gradle.plugin.config.SpecConfigurationFactory
-import org.archguard.scanner.gradle.plugin.task.ScanArchguardTask
+import org.archguard.scanner.gradle.plugin.task.LocalCheckTask
+import org.archguard.scanner.gradle.plugin.task.ScanTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 const val EXTENSION_NAME = "archguard"
-const val TASK_NAME = "scanArchguard"
 
 abstract class ArchguardPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -25,8 +23,14 @@ abstract class ArchguardPlugin : Plugin<Project> {
             specContainer
         )
 
-        project.tasks.register(TASK_NAME, ScanArchguardTask::class.java) {
+        // normal archguard scanning task
+        project.tasks.register("archguardScan", ScanTask::class.java) {
             it.commands = toCommands(extension, project)
+            it.group = "verification"
+            it.description = "Scan the project with Archguard"
+        }
+
+        project.tasks.register("archguardLocalCheck", LocalCheckTask::class.java) {
             it.group = "verification"
             it.description = "Scan the project with Archguard"
         }
