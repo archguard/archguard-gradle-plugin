@@ -2,6 +2,10 @@ package org.archguard.scanner.gradle.plugin
 
 import org.archguard.scanner.core.AnalyserSpec
 import org.archguard.scanner.ctl.command.ScannerCommand
+import org.archguard.scanner.gradle.plugin.config.SlotConfiguration
+import org.archguard.scanner.gradle.plugin.config.SlotConfigurationFactory
+import org.archguard.scanner.gradle.plugin.config.SpecConfiguration
+import org.archguard.scanner.gradle.plugin.config.SpecConfigurationFactory
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

@@ -1,12 +1,14 @@
-package org.archguard.scanner.gradle.plugin
+package org.archguard.scanner.gradle.plugin.config
 
 import org.gradle.api.Named
 import org.gradle.api.NamedDomainObjectFactory
 import org.gradle.api.Project
 import javax.inject.Inject
 
-// refactor -> merge SlotConfiguration and SpecConfiguration
-abstract class SpecConfiguration @Inject constructor(
+/**
+ * Container for the custom Archguard plugin configuration DSL.
+ */
+abstract class SlotConfiguration @Inject constructor(
     name: String,
     private var project: Project
 ) : Named {
@@ -24,8 +26,8 @@ abstract class SpecConfiguration @Inject constructor(
     }
 }
 
-internal class SpecConfigurationFactory(private val project: Project) : NamedDomainObjectFactory<SpecConfiguration> {
-    override fun create(name: String): SpecConfiguration {
-        return project.objects.newInstance(SpecConfiguration::class.java, name, project)
+internal class SlotConfigurationFactory(private val project: Project) : NamedDomainObjectFactory<SlotConfiguration> {
+    override fun create(name: String): SlotConfiguration {
+        return project.objects.newInstance(SlotConfiguration::class.java, name, project)
     }
 }
