@@ -2,7 +2,11 @@ package org.archguard.scanner.gradle.plugin
 
 import org.archguard.scanner.core.AnalyserSpec
 import org.archguard.scanner.ctl.command.ScannerCommand
-import org.archguard.scanner.gradle.plugin.config.*
+import org.archguard.scanner.gradle.plugin.config.ArchguardConfig
+import org.archguard.scanner.gradle.plugin.config.SlotConfiguration
+import org.archguard.scanner.gradle.plugin.config.SlotConfigurationFactory
+import org.archguard.scanner.gradle.plugin.config.SpecConfiguration
+import org.archguard.scanner.gradle.plugin.config.SpecConfigurationFactory
 import org.archguard.scanner.gradle.plugin.task.LocalCheckTask
 import org.archguard.scanner.gradle.plugin.task.ScanTask
 import org.gradle.api.Plugin
@@ -30,7 +34,9 @@ abstract class ArchguardPlugin : Plugin<Project> {
             it.description = "Scan the project with Archguard"
         }
 
+        // local archguard scanning task
         project.tasks.register("archguardLocalCheck", LocalCheckTask::class.java) {
+            it.commands = toCommands(extension, project)
             it.group = "verification"
             it.description = "Scan the project with Archguard"
         }

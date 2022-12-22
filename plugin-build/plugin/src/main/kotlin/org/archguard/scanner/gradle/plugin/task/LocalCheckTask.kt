@@ -1,6 +1,8 @@
 package org.archguard.scanner.gradle.plugin.task
 
+import org.archguard.scanner.ctl.command.ScannerCommand
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
 abstract class LocalCheckTask : DefaultTask() {
@@ -8,8 +10,14 @@ abstract class LocalCheckTask : DefaultTask() {
         description = "Archguard check in local"
     }
 
+    @get:Input
+    abstract var commands: List<ScannerCommand>
+//
+//    @get:OutputDirectory
+//    var outputDir = project.buildDir.resolve("archguard")
+
     @TaskAction
     fun executeScan() {
-        println("ArchGuardCheckTask")
+        logger.lifecycle("ArchGuardLocalCheckTask")
     }
 }
