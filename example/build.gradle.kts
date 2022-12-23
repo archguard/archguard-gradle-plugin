@@ -42,4 +42,8 @@ archguard {
             className = "org.archguard.linter.rule.webapi.WebApiRuleSlot"
         }
     }
+
+//    report {
+//
+//    }
 }
