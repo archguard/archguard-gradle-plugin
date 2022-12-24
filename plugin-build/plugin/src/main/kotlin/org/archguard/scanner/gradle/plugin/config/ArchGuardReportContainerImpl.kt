@@ -9,7 +9,6 @@ import org.gradle.api.reporting.internal.TaskGeneratedSingleDirectoryReport
 import org.gradle.api.reporting.internal.TaskGeneratedSingleFileReport
 import org.gradle.api.reporting.internal.TaskReportContainer
 
-
 class ArchGuardReportContainerImpl : ArchGuardReportContainer, TaskReportContainer<ConfigurableReport> {
     constructor(task: Task, decorator: CollectionCallbackActionDecorator) : super(
         ConfigurableReport::class.java,
@@ -24,5 +23,4 @@ class ArchGuardReportContainerImpl : ArchGuardReportContainer, TaskReportContain
     override val html: DirectoryReport? get() = getByName("html") as DirectoryReport?
     override val xml: SingleFileReport? get() = getByName("xml") as SingleFileReport?
     override val csv: SingleFileReport? get() = getByName("csv") as SingleFileReport?
-
 }

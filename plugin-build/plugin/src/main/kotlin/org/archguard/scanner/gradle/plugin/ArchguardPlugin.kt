@@ -27,7 +27,7 @@ abstract class ArchguardPlugin : Plugin<Project> {
             ArchguardConfig::class.java,
             project,
             slotContainer,
-            specContainer,
+            specContainer
         )
 
         // normal archguard scanning task

@@ -1,7 +1,5 @@
 package org.archguard.scanner.gradle.plugin.config
 
-import org.archguard.scanner.gradle.plugin.config.SlotConfiguration
-import org.archguard.scanner.gradle.plugin.config.SpecConfiguration
 import org.gradle.api.Action
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project

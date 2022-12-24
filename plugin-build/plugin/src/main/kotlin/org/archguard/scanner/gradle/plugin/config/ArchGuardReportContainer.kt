@@ -6,7 +6,7 @@ import org.gradle.api.reporting.ReportContainer
 import org.gradle.api.reporting.SingleFileReport
 import org.gradle.api.tasks.Internal
 
-interface ArchGuardReportContainer: ReportContainer<ConfigurableReport?> {
+interface ArchGuardReportContainer : ReportContainer<ConfigurableReport?> {
     @get:Internal
     val html: DirectoryReport?
 
