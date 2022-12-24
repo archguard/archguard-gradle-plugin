@@ -2,6 +2,7 @@ package org.archguard.scanner.gradle.plugin
 
 import org.archguard.scanner.core.AnalyserSpec
 import org.archguard.scanner.ctl.command.ScannerCommand
+import org.archguard.scanner.gradle.plugin.config.ArchGuardReportContainerImpl
 import org.archguard.scanner.gradle.plugin.config.ArchguardConfig
 import org.archguard.scanner.gradle.plugin.config.SlotConfiguration
 import org.archguard.scanner.gradle.plugin.config.SlotConfigurationFactory
@@ -11,6 +12,8 @@ import org.archguard.scanner.gradle.plugin.task.LocalCheckTask
 import org.archguard.scanner.gradle.plugin.task.ScanTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.internal.CollectionCallbackActionDecorator
+import javax.inject.Inject
 
 const val EXTENSION_NAME = "archguard"
 
@@ -24,7 +27,7 @@ abstract class ArchguardPlugin : Plugin<Project> {
             ArchguardConfig::class.java,
             project,
             slotContainer,
-            specContainer
+            specContainer,
         )
 
         // normal archguard scanning task
@@ -36,11 +39,17 @@ abstract class ArchguardPlugin : Plugin<Project> {
 
         // local archguard scanning task
         project.tasks.register("archguardLocalCheck", LocalCheckTask::class.java) {
+            extension.report = ArchGuardReportContainerImpl(it, getCallbackActionDecorator())
             it.commands = toCommands(extension, project)
             it.group = "verification"
-            it.description = "Scan the project with Archguard"
+            it.description = "Run ArchGuard in Local"
         }
     }
+}
+
+@Inject
+fun getCallbackActionDecorator(): CollectionCallbackActionDecorator {
+    return CollectionCallbackActionDecorator.NOOP
 }
 
 private fun toCommands(extension: ArchguardConfig, project: Project): List<ScannerCommand> {

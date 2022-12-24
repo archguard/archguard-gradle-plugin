@@ -48,6 +48,10 @@ abstract class ArchguardConfig @Inject constructor(
      */
     var outputDir: String = "."
 
+    /**
+     * report
+     */
+    abstract var report: ArchGuardReportContainer
 
     /**
      * supported : source_code, git, diff_changes, sca, architecture, estimate
