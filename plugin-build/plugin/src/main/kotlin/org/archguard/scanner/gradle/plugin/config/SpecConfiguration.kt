@@ -11,6 +11,9 @@ abstract class SpecConfiguration @Inject constructor(
     private var project: Project
 ) : Named {
     private val mName: String = name
+    override fun getName(): String {
+        return this.mName
+    }
 
     abstract var identifier: String
     abstract var host: String
@@ -18,10 +21,6 @@ abstract class SpecConfiguration @Inject constructor(
     abstract var jar: String
     abstract var className: String
     abstract var slotType: String
-
-    override fun getName(): String {
-        return this.mName
-    }
 }
 
 internal class SpecConfigurationFactory(private val project: Project) : NamedDomainObjectFactory<SpecConfiguration> {

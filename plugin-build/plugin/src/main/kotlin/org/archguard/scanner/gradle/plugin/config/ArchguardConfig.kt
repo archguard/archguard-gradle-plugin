@@ -44,6 +44,12 @@ abstract class ArchguardConfig @Inject constructor(
     abstract var systemId: String
 
     /**
+     * output directory
+     */
+    var outputDir: String = "."
+
+
+    /**
      * supported : source_code, git, diff_changes, sca, architecture, estimate
      */
     abstract var type: List<String>
