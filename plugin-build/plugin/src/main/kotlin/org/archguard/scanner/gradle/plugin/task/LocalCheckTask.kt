@@ -12,9 +12,6 @@ abstract class LocalCheckTask : DefaultTask() {
 
     @get:Input
     abstract var commands: List<ScannerCommand>
-//
-//    @get:OutputDirectory
-//    abstract val outputDirectory: DirectoryProperty
 
     @TaskAction
     fun executeScan() {
@@ -24,7 +21,5 @@ abstract class LocalCheckTask : DefaultTask() {
         outputDir.mkdirs()
 
         logger.lifecycle("OutputDir: ${outputDir.absolutePath}")
-
-//        File(outputDirectory.asFile.get(), "lint.json")
     }
 }

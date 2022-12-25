@@ -2,7 +2,6 @@ package org.archguard.scanner.gradle.plugin
 
 import org.archguard.scanner.core.AnalyserSpec
 import org.archguard.scanner.ctl.command.ScannerCommand
-import org.archguard.scanner.gradle.plugin.config.ArchGuardReportContainerImpl
 import org.archguard.scanner.gradle.plugin.config.ArchguardConfig
 import org.archguard.scanner.gradle.plugin.config.SlotConfiguration
 import org.archguard.scanner.gradle.plugin.config.SlotConfigurationFactory
@@ -39,7 +38,7 @@ abstract class ArchguardPlugin : Plugin<Project> {
 
         // local archguard scanning task
         project.tasks.register("archguardLocalCheck", LocalCheckTask::class.java) {
-            extension.report = ArchGuardReportContainerImpl(it, getCallbackActionDecorator())
+//            extension.report = ArchGuardReportContainerImpl(it, getCallbackActionDecorator())
             it.commands = toCommands(extension, project)
             it.group = "verification"
             it.description = "Run ArchGuard in Local"
