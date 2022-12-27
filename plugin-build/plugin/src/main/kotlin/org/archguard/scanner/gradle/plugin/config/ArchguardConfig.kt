@@ -9,7 +9,7 @@ import javax.inject.Inject
 abstract class ArchguardConfig @Inject constructor(
     val project: Project,
     val slotContainer: NamedDomainObjectContainer<SlotConfiguration>,
-    val specContainer: NamedDomainObjectContainer<SpecConfiguration>,
+    val specContainer: NamedDomainObjectContainer<SpecConfiguration>
 ) {
     /**
      * The server url of Archguard backend, default to [http://localhost:8088]
